@@ -5,7 +5,7 @@ import { service as serviceB } from "./serviceB";
 
 const defaultService: Service = {
   name: "none",
-  features: Object.values(allFeatures),
+  features: allFeatures,
 };
 
 const services: Record<string, Service> = {

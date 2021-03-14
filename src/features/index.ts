@@ -13,6 +13,4 @@ export interface Feature {
   pages: Page[];
 }
 
-type FeatureName = "core" | "counter";
-
-export const allFeatures: Record<FeatureName, Feature> = { core, counter };
+export const allFeatures: Feature[] = [core, counter];
