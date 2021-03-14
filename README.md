@@ -1,2 +1,3 @@
 # env-services
-Example setup for a multi-services React project
+
+Example setup for a multi-services React project utilizing build time transformation
