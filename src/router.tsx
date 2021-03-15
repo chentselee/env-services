@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useService } from "src/services";
 import { DefaultLayout } from "src/layouts";
 
+const NoMatch = () => {
+  return <div>Not found.</div>;
+};
+
 const Routes = () => {
   const { features } = useService();
   return (
@@ -18,6 +22,9 @@ const Routes = () => {
             )}
           </Route>
         ))}
+      <Route path="*">
+        <NoMatch />
+      </Route>
     </>
   );
 };

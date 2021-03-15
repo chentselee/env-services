@@ -1,17 +1,7 @@
 import React from "react";
 import { Page } from "src/features";
-import Nav from "src/components/Nav";
+import { CustomLayout } from "src/layouts";
 import Home from "./Home";
-
-const CustomLayout: React.FC = ({ children }) => {
-  return (
-    <>
-      <Nav />
-      <h2 style={{ color: "red" }}>custom layout</h2>
-      {children}
-    </>
-  );
-};
 
 export const pages: Page[] = [
   { name: "Home", route: "/", component: <Home /> },
