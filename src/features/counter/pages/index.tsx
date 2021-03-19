@@ -7,5 +7,6 @@ export const pages: Page[] = [
     name: 'Counter',
     route: '/counter',
     component: <Counter />,
+    protected: true,
   },
 ]

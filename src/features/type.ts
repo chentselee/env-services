@@ -3,6 +3,7 @@ export interface Page {
   route: string
   layout?: React.ComponentType
   component: React.ReactNode
+  protected?: boolean
 }
 
 export interface Feature {

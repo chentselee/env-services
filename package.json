@@ -11,7 +11,9 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0",
-    "reactivue": "^0.3.3"
+    "reactivue": "^0.3.3",
+    "ts-pattern": "^3.0.6",
+    "zustand": "^3.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-replace": "^2.4.1",
