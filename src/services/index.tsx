@@ -1,20 +1,16 @@
-import React, { createContext, useContext } from "react";
-import { Feature } from "src/features";
-import { service } from "src/services/development";
+import React, { createContext, useContext } from 'react'
+import type { Feature } from 'src/features/type'
+import { service } from 'src/services/development'
 
 export interface Service {
-  name: string;
-  features: Feature[];
+  name: string
+  features: Feature[]
 }
 
-const serviceContext = createContext(service);
+const serviceContext = createContext(service)
 
 export const ServiceProvider: React.FC = ({ children }) => {
-  return (
-    <serviceContext.Provider value={service}>
-      {children}
-    </serviceContext.Provider>
-  );
-};
+  return <serviceContext.Provider value={service}>{children}</serviceContext.Provider>
+}
 
-export const useService = () => useContext(serviceContext);
+export const useService = () => useContext(serviceContext)
