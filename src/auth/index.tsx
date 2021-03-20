@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext } from 'react'
+import { useMachine } from '@xstate/react'
+import { authMachine } from './machine'
 
-type AuthStatus = 'unauthorized' | 'authorized'
+export type AuthStatus = 'authorized' | 'unauthorized' | 'authorizing' | 'error'
 
 interface AuthProviderContext {
   authStatus: AuthStatus
@@ -15,19 +17,11 @@ const authContext = createContext<AuthProviderContext>({
 })
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [authStatus, setAuthState] = useState<AuthStatus>(() => 'unauthorized')
+  const [state, send] = useMachine(authMachine)
   const value: AuthProviderContext = {
-    authStatus,
-    login: (email, password) => {
-      if (authStatus === 'unauthorized' && email === '123@example.com' && password === '123') {
-        setAuthState('authorized')
-      }
-    },
-    logout: () => {
-      if (authStatus === 'authorized') {
-        setAuthState('unauthorized')
-      }
-    },
+    authStatus: (state.value as unknown) as AuthStatus,
+    login: (email, password) => send({ type: 'LOGIN', email, password }),
+    logout: () => send({ type: 'LOGOUT' }),
   }
   return <authContext.Provider value={value}>{children}</authContext.Provider>
 }

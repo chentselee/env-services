@@ -1,10 +1,12 @@
 dependencies:
+  '@xstate/react': 1.3.1_15cdcd519c34735b4d37372b05635c77
   fp-ts: 2.9.5
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
   reactivue: 0.3.4_react@17.0.1
   ts-pattern: 3.0.6
+  xstate: 4.16.2
   zustand: 3.3.3_react@17.0.1
 devDependencies:
   '@rollup/plugin-replace': 2.4.1
@@ -324,6 +326,25 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dn5FyfSc4ky424jH4FntiHno7Ss5yLkqKNmM/NXwANRnlkmqu74pnGetexDFVG5phMk9/FhwovUZCWGxsotVKg==
+  /@xstate/react/1.3.1_15cdcd519c34735b4d37372b05635c77:
+    dependencies:
+      react: 17.0.1
+      use-isomorphic-layout-effect: 1.1.1_@types+react@17.0.3+react@17.0.1
+      use-subscription: 1.5.1_react@17.0.1
+      xstate: 4.16.2
+    dev: false
+    peerDependencies:
+      '@types/react': '*'
+      '@xstate/fsm': ^1.0.0
+      react: ^16.8.0 || ^17.0.0
+      xstate: ^4.11.0
+    peerDependenciesMeta:
+      '@xstate/fsm':
+        optional: true
+      xstate:
+        optional: true
+    resolution:
+      integrity: sha512-wgAHr4tWVQQwH6dIQTcZQYGLXiK9V8gMqMxOWyiLQzoKchqXFfb0LlCcw0FAc4jmpuGHSFSk6fAXjEpFpV+Jxw==
   /ansi-styles/3.2.1:
     dependencies:
       color-convert: 1.9.3
@@ -762,6 +783,28 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
+  /use-isomorphic-layout-effect/1.1.1_@types+react@17.0.3+react@17.0.1:
+    dependencies:
+      '@types/react': 17.0.3
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8.0 || ^17.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    resolution:
+      integrity: sha512-L7Evj8FGcwo/wpbv/qvSfrkHFtOpCzvM5yl2KVyDJoylVuSvzphiiasmjgQPttIGBAy2WKiBNR98q8w7PiNgKQ==
+  /use-subscription/1.5.1_react@17.0.1:
+    dependencies:
+      object-assign: 4.1.1
+      react: 17.0.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-Xv2a1P/yReAjAbhylMfFplFKj9GssgTwN7RlcTxBujFQcloStWNDQdc4g4NRWH9xS4i/FDk04vQBptAXoF3VcA==
   /value-equal/1.0.1:
     dev: false
     resolution:
@@ -780,6 +823,10 @@ packages:
       fsevents: 2.3.2
     resolution:
       integrity: sha512-QTgEDbq1WsTtr6j+++ewjhBFEk6c8v0xz4fb/OWJQKNYU8ZZtphOshwOqAlnarSstPBtWCBR0tsugXx6ajfoUg==
+  /xstate/4.16.2:
+    dev: false
+    resolution:
+      integrity: sha512-EY39NNZnwM4tRYNmQAi1c2qHuZ1lJmuDpEo1jxiRcfS+1jPtKRAjGRLNx3fYKcK0ohW6mL41Wze3mdCF0SqavA==
   /zustand/3.3.3_react@17.0.1:
     dependencies:
       react: 17.0.1
@@ -795,6 +842,7 @@ specifiers:
   '@types/react-dom': ^17.0.0
   '@types/react-router-dom': ^5.1.7
   '@vitejs/plugin-react-refresh': ^1.3.1
+  '@xstate/react': ^1.3.1
   fp-ts: ^2.9.5
   react: ^17.0.0
   react-dom: ^17.0.0
@@ -803,4 +851,5 @@ specifiers:
   ts-pattern: ^3.0.6
   typescript: ^4.1.2
   vite: ^2.0.5
+  xstate: ^4.16.2
   zustand: ^3.3.3

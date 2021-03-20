@@ -29,8 +29,7 @@ export const RouterProvider = () => {
                     )}
                   </Route>
                 ))
-                .with('unauthorized', () => <Redirect key={page.route} to='/login' />)
-                .exhaustive()
+                .otherwise(() => <Redirect key={page.route} to='/login' />)
             ) : (
               <Route key={page.route} exact path={page.route}>
                 {page.layout ? (
