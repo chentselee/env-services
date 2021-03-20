@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react'
-import { useAuthMachine } from './machine'
+import { useAuthMachine } from './machine-development'
 
 export type AuthStatus = 'authorized' | 'unauthorized' | 'authorizing' | 'error'
 

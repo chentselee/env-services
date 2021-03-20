@@ -1,7 +1,8 @@
 import { createMachine } from 'xstate'
 import { useMachine } from '@xstate/react'
+import { authStateKey } from 'src/constants/sessionStorageKeys'
 
-export const authMachine = createMachine({
+const authMachine = createMachine({
   initial: 'unauthorized',
   states: {
     unauthorized: {
@@ -27,14 +28,15 @@ export const authMachine = createMachine({
       on: {
         SUCCESS: {
           target: 'authorized',
+          actions: 'persistAuthState',
         },
         FAILURE: 'error',
       },
     },
     authorized: {
-      entry: 'persistAuthState',
+      exit: 'clearPersistedAuthState',
       on: {
-        LOGOUT: { target: 'unauthorized', actions: 'clearPersistedAuthState' },
+        LOGOUT: { target: 'unauthorized' },
       },
     },
     error: {
@@ -46,8 +48,6 @@ export const authMachine = createMachine({
     },
   },
 })
-
-const authStateKey = 'auth-state'
 
 const persistedAuthState = sessionStorage.getItem(authStateKey)
   ? JSON.parse(sessionStorage.getItem(authStateKey) as string)

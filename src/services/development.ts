@@ -1,3 +1,4 @@
+import { serviceNameKey } from 'src/constants/sessionStorageKeys'
 import { allFeatures } from 'src/features/allFeatures'
 import { Service } from 'src/services'
 import { service as serviceA } from './serviceA'
@@ -14,9 +15,10 @@ const services: Record<string, Service> = {
   defaultService,
 }
 
-export const service =
-  services[
-    (import.meta.env.VITE_SERVICE as string)
-      ? (import.meta.env.VITE_SERVICE as string)
-      : 'defaultService'
-  ]
+const serviceName = (import.meta.env.VITE_SERVICE as string)
+  ? (import.meta.env.VITE_SERVICE as string)
+  : 'defaultService'
+
+sessionStorage.setItem(serviceNameKey, serviceName)
+
+export const service = services[serviceName]
