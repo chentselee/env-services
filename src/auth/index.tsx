@@ -1,6 +1,5 @@
 import React, { createContext, useContext } from 'react'
-import { useMachine } from '@xstate/react'
-import { authMachine } from './machine'
+import { useAuthMachine } from './machine'
 
 export type AuthStatus = 'authorized' | 'unauthorized' | 'authorizing' | 'error'
 
@@ -17,7 +16,7 @@ const authContext = createContext<AuthProviderContext>({
 })
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [state, send] = useMachine(authMachine)
+  const [state, send] = useAuthMachine()
   const value: AuthProviderContext = {
     authStatus: (state.value as unknown) as AuthStatus,
     login: (email, password) => send({ type: 'LOGIN', email, password }),
