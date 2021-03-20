@@ -4,6 +4,7 @@ export interface Page {
   layout?: React.ComponentType
   component: React.ReactNode
   protected?: boolean
+  showInNav?: boolean
 }
 
 export interface Feature {

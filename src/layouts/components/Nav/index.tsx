@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useService } from 'src/services'
 import { useAuth } from 'src/auth'
 
@@ -9,11 +9,18 @@ const Nav = () => {
   return (
     <nav>
       {features.flatMap((feature) =>
-        feature.pages.map((page) => (
-          <Link key={page.route} to={page.route}>
-            {page.name}
-          </Link>
-        ))
+        feature.pages
+          .filter((page) => page.showInNav)
+          .map((page) => (
+            <NavLink
+              key={page.route}
+              to={page.route}
+              isActive={(_, { pathname }) => page.route === pathname}
+              activeStyle={{ fontWeight: 'bold' }}
+            >
+              {page.name}
+            </NavLink>
+          ))
       )}
       <button type='button' onClick={() => logout()}>
         logout

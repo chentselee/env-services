@@ -8,5 +8,6 @@ export const pages: Page[] = [
     route: '/counter',
     component: <Counter />,
     protected: true,
+    showInNav: true,
   },
 ]
