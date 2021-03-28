@@ -1,7 +1,7 @@
-import React from 'react'
-import { ServiceProvider } from 'src/services'
-import { AuthProvider } from 'src/auth'
-import { RouterProvider } from 'src/router'
+import React from "react";
+import { AuthProvider } from "src/auth";
+import { RouterProvider } from "src/router";
+import { ServiceProvider } from "src/services";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         </AuthProvider>
       </ServiceProvider>
     </React.Suspense>
-  )
+  );
 }
 
-export default App
+export default App;

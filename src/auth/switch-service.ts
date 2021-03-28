@@ -1,10 +1,10 @@
-import { authStateKey, serviceNameKey } from 'src/constants/sessionStorageKeys'
+import { authStateKey, serviceNameKey } from "src/constants/sessionStorageKeys";
 
 const currentServiceName = (import.meta.env.VITE_SERVICE as string)
   ? (import.meta.env.VITE_SERVICE as string)
-  : 'defaultService'
-const lastServiceName = sessionStorage.getItem(serviceNameKey)
+  : "defaultService";
+const lastServiceName = sessionStorage.getItem(serviceNameKey);
 
 if (currentServiceName !== lastServiceName) {
-  sessionStorage.removeItem(authStateKey)
+  sessionStorage.removeItem(authStateKey);
 }

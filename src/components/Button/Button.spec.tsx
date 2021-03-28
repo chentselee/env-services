@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import Button from './Button'
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import React, { useState } from "react";
 
-it('render', () => {
-  render(<Button>click</Button>)
+import Button from "./Button";
 
-  expect(screen.getByRole('button', { name: /click/i })).toBeVisible()
-})
+it("render", () => {
+  render(<Button>click</Button>);
 
-it('respond to click event', () => {
+  expect(screen.getByRole("button", { name: /click/i })).toBeVisible();
+});
+
+it("respond to click event", () => {
   const Wrapper = () => {
-    const [isClicked, setIsClicked] = useState(false)
+    const [isClicked, setIsClicked] = useState(false);
     return (
       <div>
         <Button onClick={() => setIsClicked(true)}>click</Button>
         {isClicked && <div>clicked</div>}
       </div>
-    )
-  }
+    );
+  };
 
-  render(<Wrapper />)
+  render(<Wrapper />);
 
-  userEvent.click(screen.getByRole('button', { name: /click/i }))
+  userEvent.click(screen.getByRole("button", { name: /click/i }));
 
-  expect(screen.getByText(/clicked/i)).toBeVisible()
-})
+  expect(screen.getByText(/clicked/i)).toBeVisible();
+});

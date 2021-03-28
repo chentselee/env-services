@@ -1,3 +1,3 @@
-import './switch-service'
+import "./switch-service";
 
-export { useAuthMachine } from './machine'
+export { useAuthMachine } from "./machine";

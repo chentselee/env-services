@@ -1,17 +1,22 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
-import { match } from 'ts-pattern'
-import { useService } from 'src/services'
-import { useAuth } from 'src/auth'
-import { DefaultLayout } from 'src/layouts'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { useAuth } from "src/auth";
+import { DefaultLayout } from "src/layouts";
+import { useService } from "src/services";
+import { match } from "ts-pattern";
 
 const NoMatch = () => {
-  return <div>Not found.</div>
-}
+  return <div>Not found.</div>;
+};
 
 export const RouterProvider = () => {
-  const { features } = useService()
-  const { authStatus } = useAuth()
+  const { features } = useService();
+  const { authStatus } = useAuth();
   return (
     <Router>
       <Switch>
@@ -20,7 +25,7 @@ export const RouterProvider = () => {
           .map((page) =>
             page.protected ? (
               match(authStatus)
-                .with('authorized', () => (
+                .with("authorized", () => (
                   <Route key={page.route} exact path={page.route}>
                     {page.layout ? (
                       <page.layout>{page.component}</page.layout>
@@ -29,7 +34,7 @@ export const RouterProvider = () => {
                     )}
                   </Route>
                 ))
-                .otherwise(() => <Redirect key={page.route} to='/login' />)
+                .otherwise(() => <Redirect key={page.route} to="/login" />)
             ) : (
               <Route key={page.route} exact path={page.route}>
                 {page.layout ? (
@@ -40,10 +45,10 @@ export const RouterProvider = () => {
               </Route>
             )
           )}
-        <Route path='*'>
+        <Route path="*">
           <NoMatch />
         </Route>
       </Switch>
     </Router>
-  )
-}
+  );
+};

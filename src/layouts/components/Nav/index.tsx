@@ -1,11 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { useService } from 'src/services'
-import { useAuth } from 'src/auth'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "src/auth";
+import { useService } from "src/services";
 
 const Nav = () => {
-  const { features } = useService()
-  const { logout } = useAuth()
+  const { features } = useService();
+  const { logout } = useAuth();
   return (
     <nav>
       {features.flatMap((feature) =>
@@ -16,17 +16,17 @@ const Nav = () => {
               key={page.route}
               to={page.route}
               isActive={(_, { pathname }) => page.route === pathname}
-              activeStyle={{ fontWeight: 'bold' }}
+              activeStyle={{ fontWeight: "bold" }}
             >
               {page.name}
             </NavLink>
           ))
       )}
-      <button type='button' onClick={() => logout()}>
+      <button type="button" onClick={() => logout()}>
         logout
       </button>
     </nav>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;
