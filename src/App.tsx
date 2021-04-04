@@ -1,7 +1,9 @@
+// Providers must be imported in the correct order
+/* eslint-disable simple-import-sort/imports */
 import React from "react";
+import { ServiceProvider } from "src/services";
 import { AuthProvider } from "src/auth";
 import { RouterProvider } from "src/router";
-import { ServiceProvider } from "src/services";
 
 function App() {
   return (
